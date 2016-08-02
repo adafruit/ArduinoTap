@@ -1,8 +1,5 @@
-
-ArduinoTap : an Unit Testing library
+ArduinoTap : A Unit Testing Library
 ====================================
-
-[![Build Status](https://travis-ci.org/fperrad/ArduinoTap.png)](https://travis-ci.org/fperrad/ArduinoTap)
 
 Introduction
 ------------
@@ -19,27 +16,13 @@ It allows a simple and efficient way to write tests (without OO style).
 
 Some tests could be marked as TODO or skipped.
 
-An additional script _runino_ allows to build a sketch, to upload it on an Arduino board, and
-to capture its output. So, it is possible to use a continuous integration server which runs
-a test suite containing many sketches.
-
-    $ prove --exec=runino examples/*ok/*.ino examples/is*/*.ino
-
 Bibliography
 ------------
 
 * Ian Langworth, chromatic, [Perl Testing](http://oreilly.com/catalog/9780596100926) O'Reilly, 2005
 * James W. Grenning, [Test Driven Development for Embedded C](http://pragprog.com/book/jgade/test-driven-development-for-embedded-c) The Pragmatic Bookshelf, 2009
 
-Download
 --------
-
-ArduinoTap source can be downloaded from [GitHub](http://github.com/fperrad/ArduinoTap/downloads/).
-
-Installation
-------------
-
-    $ sudo make install
 
 Copyright and License
 ---------------------
@@ -47,4 +30,3 @@ Copyright and License
 Copyright 2011-2015 Francois Perrad
 
 This library is licensed under the terms of the Artistic License 2.0, like Perl.
-
