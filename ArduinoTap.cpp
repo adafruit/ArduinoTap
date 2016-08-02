@@ -1,13 +1,5 @@
-
-#ifdef ARDUINO
-#if ARDUINO >= 100
 #include "Arduino.h"
-#else
-#include "WProgram.h"
-#endif
-#endif
 #include "ArduinoTap.h"
-
 
 static int _curr_test = 0;
 static int _expected_tests = 0;
@@ -19,19 +11,15 @@ static bool _is_passing = true;
 static int _todo_upto = -1;
 static const char *_todo_reason = NULL;
 
-#if defined(UBRRH) || defined(UBRR0H)
-static Stream *_out = &Serial;
-static Stream *_failure_out = &Serial;
-#elif defined(ARDUINO)
 static Stream *_out = NULL;
 static Stream *_failure_out = NULL;
-#else
-static Stream Cout(std::cout);
-static Stream Cerr(std::cerr);
-static Stream *_out = &Cout;
-static Stream *_failure_out = &Cerr;
-#endif
 
+#ifdef ESP8266
+void exit(const int code)
+{
+  for ( ; ; ) ;
+}
+#endif
 
 int plan() {
     return _expected_tests;
