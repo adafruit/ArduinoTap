@@ -11,13 +11,15 @@ static bool _is_passing = true;
 static int _todo_upto = -1;
 static const char *_todo_reason = NULL;
 
-static Stream *_out = NULL;
-static Stream *_failure_out = NULL;
+static Stream *_out = &Serial;
+static Stream *_failure_out = &Serial;
 
 #ifdef ESP8266
 void exit(const int code)
 {
-  for ( ; ; ) ;
+  while(true) {
+   yield();
+  }
 }
 #endif
 
@@ -35,6 +37,7 @@ static inline void not_yet_plan() {
 }
 
 void plan(const int nb) {
+    _out->println("# Starting Tests.");
     not_yet_plan();
     if (nb < 0) {
         _out->flush();
@@ -95,7 +98,7 @@ void done_testing(const int nb) {
         if ((_expected_tests != _curr_test) || (_curr_test == 0)) {
             _is_passing = false;
         }
-        _out->println("# Done with ArduinoTap.");
+        _out->println("# Done with Tests.");
     }
 }
 
