@@ -37,6 +37,7 @@ static inline void not_yet_plan() {
 }
 
 void plan(const int nb) {
+    _out->println();
     _out->println("# Starting Tests.");
     not_yet_plan();
     if (nb < 0) {
